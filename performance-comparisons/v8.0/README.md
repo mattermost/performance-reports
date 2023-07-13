@@ -26,7 +26,7 @@
   - The number of supported users seems to have slightly increased in MySQL (run 1 reported an increase of 28.56%, while run 3 reported an increase of 5.21%). Postgres in run 2 reported a non-significant increase of 0.98%.
   - Heap in use was consistently larger in v7.10 than in v8.0 across all four tests. Stack in use was larger in v7.10 than in v8.0 in the bounded MySQL test. Running a diff view in Pyroscope does not help in the analysis, since most of the paths changed from `v6/` to `v8/` due to the module version bump (see screenshot below). A more thorough analysis cleaning the input data to match `v6` paths to `v8` paths would be needed.
 
-![image](https://community.mattermost.com/api/v4/image?url=https%3A%2F%2Fgithub.com%2Fmattermost%2Fmattermost-load-test-ng%2Fassets%2F3924815%2F75689ae0-1f54-4821-b882-5aad64ee8216)
+![Pyroscope diff view](assets/screenshot-pyroscope.png)
 
 ## Next Steps
 
