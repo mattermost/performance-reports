@@ -1,0 +1,42 @@
+{
+  "BaseBuild": {
+    "Label": "release-8.0.1",
+    "URL": "file:///home/ubuntu/mattermost-enterprise-linux-amd64.8.0.1.tar.gz"
+  },
+  "NewBuild": {
+    "Label": "release-8.1.0-rc1",
+    "URL": "file:///home/ubuntu/mattermost-enterprise-linux-amd64.8.0.1.tar.gz"
+  },
+  "LoadTests": [
+    {
+      "Type": "unbounded",
+      "DBEngine": "postgresql",
+      "DBDumpURL": "https://lt-public-data.s3.amazonaws.com/12M_610_psql.sql.gz"
+    },
+    {
+      "Type": "bounded",
+      "DBEngine": "postgresql",
+      "DBDumpURL": "https://lt-public-data.s3.amazonaws.com/12M_610_psql.sql.gz",
+      "NumUsers": 7500,
+      "Duration": "90m"
+    },
+    {
+      "Type": "unbounded",
+      "DBEngine": "mysql",
+      "DBDumpURL": "https://lt-public-data.s3.amazonaws.com/12M_610_mysql.sql.gz"
+    },
+    {
+      "Type": "bounded",
+      "DBEngine": "mysql",
+      "DBDumpURL": "https://lt-public-data.s3.amazonaws.com/12M_610_mysql.sql.gz",
+      "NumUsers": 5000,
+      "Duration": "90m"
+    }
+  ],
+  "Output": {
+    "UploadDashboard": true,
+    "GenerateGraphs": true,
+    "GenerateReport": true
+  }
+}
+
