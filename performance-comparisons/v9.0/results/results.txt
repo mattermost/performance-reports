@@ -1,0 +1,68 @@
+==================================================
+Comparison result:
+Report: report_0_mysql_bounded_5000.md
+Grafana Dashboard: http://54.91.204.40:3000/d/de52fbd8-4270-4abc-bae3-2f35a3dffd22/comparison-0-mysql-bounded
+release-8.1.2-MM-54456:
+  Type: bounded
+  DB Engine: mysql
+  Duration: 90m
+  Users: 5000
+  Errors: 2257
+release-9.1.0-rc2-MM-54456:
+  Type: bounded
+  DB Engine: mysql
+  Duration: 90m
+  Users: 5000
+  Errors: 2022
+==================================================
+
+==================================================
+Comparison result:
+Report: report_1_postgresql_bounded_7500.md
+Grafana Dashboard: http://3.93.162.110:3000/d/f98d1345-7985-436f-a814-2389febf3a8d/comparison-0-postgresql-bounded
+release-8.1.2-MM-54456:
+  Type: bounded
+  DB Engine: postgresql
+  Duration: 90m
+  Users: 7500
+  Errors: 3403
+release-9.1.0-rc2-MM-54456:
+  Type: bounded
+  DB Engine: postgresql
+  Duration: 90m
+  Users: 7500
+  Errors: 3517
+==================================================
+
+==================================================
+Comparison result:
+Report: report_2_postgresql_unbounded.md
+Grafana Dashboard: http://54.234.101.28:3000/d/b4bd3e7f-c051-432b-9e7f-2d33e287d1c9/comparison-0-postgresql-unbounded
+release-8.1.2-MM-54456:
+  Type: unbounded
+  DB Engine: postgresql
+  Supported Users: 11383
+  Errors: 81176
+release-9.1.0-rc2-MM-54456:
+  Type: unbounded
+  DB Engine: postgresql
+  Supported Users: 12745
+  Errors: 166030
+==================================================
+
+==================================================
+Comparison result:
+Report: report_3_mysql_unbounded.md
+Grafana Dashboard: http://3.93.180.45:3000/d/b11b711f-810e-4638-924c-f38558a53814/comparison-0-mysql-unbounded
+release-8.1.2-MM-54456:
+  Type: unbounded
+  DB Engine: mysql
+  Supported Users: 11745
+  Errors: 205924
+release-9.1.0-rc2-MM-54456:
+  Type: unbounded
+  DB Engine: mysql
+  Supported Users: 12813
+  Errors: 251293
+==================================================
+
