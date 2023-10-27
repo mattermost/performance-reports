@@ -1,0 +1,95 @@
+==================================================
+Comparison result:
+Report: report_0_postgresql_bounded_7500.md
+Grafana Dashboard: http://44.212.15.64:3000/d/c7e83086-2c75-4336-9396-f25f305db96b/comparison-0-postgresql-bounded
+release-9.1.0:
+  Type: bounded
+  DB Engine: postgresql
+  Duration: 90m
+  Users: 7500
+  Errors: 4333
+release-9.2.0-rc1:
+  Type: bounded
+  DB Engine: postgresql
+  Duration: 90m
+  Users: 7500
+  Errors: 4146
+==================================================
+
+==================================================
+Comparison result:
+Report: report_1_mysql_bounded_5000.md
+Grafana Dashboard: http://54.173.205.244:3000/d/e2dfe3c8-b4ed-4bcc-8915-02282a4a659c/comparison-0-mysql-bounded
+release-9.1.0:
+  Type: bounded
+  DB Engine: mysql
+  Duration: 90m
+  Users: 5000
+  Errors: 2491
+release-9.2.0-rc1:
+  Type: bounded
+  DB Engine: mysql
+  Duration: 90m
+  Users: 5000
+  Errors: 2507
+==================================================
+
+==================================================
+Comparison result:
+Report: report_2_postgresql_unbounded.md
+Grafana Dashboard: http://18.207.202.243:3000/d/ab838b05-8a6e-46ce-9358-60b3c749b102/comparison-0-postgresql-unbounded
+release-9.1.0:
+  Type: unbounded
+  DB Engine: postgresql
+  Supported Users: 10571
+  Errors: 22040
+release-9.2.0-rc1:
+  Type: unbounded
+  DB Engine: postgresql
+  Supported Users: 10690
+  Errors: 26162
+==================================================
+
+==================================================
+Comparison result:
+Report: report_3_mysql_unbounded.md
+Grafana Dashboard: http://44.202.40.104:3000/d/d0e2af1f-d964-466f-90bf-ef6dc1fc7dcb/comparison-0-mysql-unbounded
+release-9.1.0:
+  Type: unbounded
+  DB Engine: mysql
+  Supported Users: 10588
+  Errors: 30295
+release-9.2.0-rc1:
+  Type: unbounded
+  DB Engine: mysql
+  Supported Users: 10220
+  Errors: 27426
+==================================================
+
+
+"postgres" unbounded
+Base:   2023-10-26 12:34:14.197 Z - 2023-10-26 14:15:02.938 Z (6048s)
+New:    2023-10-26 14:33:01.284 Z - 2023-10-26 16:28:46.471 Z (6945s)
+Offset: 7127s
+Base: 10571
+New:  10690
+"postgres" bounded
+Base:   2023-10-26 12:35:33.520 Z - 2023-10-26 14:05:33.528 Z (5400s)
+New:    2023-10-26 14:23:19.137 Z - 2023-10-26 15:53:19.145 Z (5400s)
+Offset: 6466s
+Base:
+New:
+"mysql" unbounded
+Base:   2023-10-26 13:09:04.208 Z - 2023-10-26 15:10:17.460 Z (7273s)
+New:    2023-10-26 16:04:54.844 Z - 2023-10-26 18:08:35.755 Z (7421s)
+Offset: 10550s
+Base: 10588
+New:  10220
+"mysql" bounded
+Base:   2023-10-26 13:09:34.598 Z - 2023-10-26 14:39:34.606 Z (5400s)
+New:    2023-10-26 15:32:59.132 Z - 2023-10-26 17:02:59.143 Z (5400s)
+Offset: 8605s
+Base:
+New:
+
+
