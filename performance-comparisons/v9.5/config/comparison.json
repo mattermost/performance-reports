@@ -1,0 +1,104 @@
+{
+  "BaseBuild": {
+    "Label": "release-9.4.0",
+    "URL": "https://releases.mattermost.com/9.4.0/mattermost-enterprise-9.4.0-linux-amd64.tar.gz"
+  },
+  "NewBuild": {
+    "Label": "release-9.5.0-rc1",
+    "URL": "https://releases.mattermost.com/9.5.0-rc1/mattermost-enterprise-9.5.0-rc1-linux-amd64.tar.gz"
+  },
+  "LoadTests": [
+    {
+      "Type": "unbounded",
+      "DBEngine": "postgresql",
+      "DBDumpURL": "https://lt-public-data.s3.amazonaws.com/12M_610_psql.sql.gz"
+    },
+    {
+      "Type": "bounded",
+      "DBEngine": "postgresql",
+      "DBDumpURL": "https://lt-public-data.s3.amazonaws.com/12M_610_psql.sql.gz",
+      "NumUsers": 7500,
+      "Duration": "90m"
+    },
+    {
+      "Type": "unbounded",
+      "DBEngine": "mysql",
+      "DBDumpURL": "https://lt-public-data.s3.amazonaws.com/12M_610_mysql.sql.gz"
+    },
+    {
+      "Type": "bounded",
+      "DBEngine": "mysql",
+      "DBDumpURL": "https://lt-public-data.s3.amazonaws.com/12M_610_mysql.sql.gz",
+      "NumUsers": 5000,
+      "Duration": "90m"
+    }
+  ],
+  "Output": {
+    "UploadDashboard": true,
+    "GenerateGraphs": true,
+    "GenerateReport": true
+  }
+}
+config.json
+{
+  "ConnectionConfiguration": {
+    "ServerURL": "http://localhost:8065",
+    "WebSocketURL": "ws://localhost:8065",
+    "AdminEmail": "sysadmin@sample.mattermost.com",
+    "AdminPassword": "Sys@dmin-sample1"
+  },
+  "UserControllerConfiguration": {
+    "Type": "simulative",
+    "RatesDistribution":[
+      {
+        "Rate": 1.0,
+        "Percentage": 0.05
+      },
+      {
+        "Rate": 2.0,
+        "Percentage": 0.1
+      },
+      {
+        "Rate": 3.0,
+        "Percentage": 0.15
+      },
+      {
+        "Rate": 6.0,
+        "Percentage": 0.4
+      },
+      {
+        "Rate": 30.0,
+        "Percentage": 0.3
+      }
+    ]
+  },
+  "InstanceConfiguration": {
+    "NumTeams": 2,
+    "NumChannels": 0,
+    "NumPosts": 0,
+    "NumReactions": 0,
+    "NumAdmins": 0,
+    "PercentReplies": 0.5,
+    "PercentRepliesInLongThreads": 0.05,
+    "PercentPublicChannels": 1,
+    "PercentPrivateChannels": 0,
+    "PercentDirectChannels": 0,
+    "PercentGroupChannels": 0
+  },
+  "UsersConfiguration": {
+    "InitialActiveUsers": 0,
+    "UsersFilePath": "",
+    "MaxActiveUsers": 2000,
+    "AvgSessionsPerUser": 1
+  },
+  "LogSettings": {
+    "EnableConsole": true,
+    "ConsoleLevel": "DEBUG",
+    "ConsoleJson": false,
+    "EnableFile": true,
+    "FileLevel": "DEBUG",
+    "FileJson": true,
+    "FileLocation": "ltagent.log",
+    "EnableColor": true
+  }
+}
