@@ -1,4 +1,4 @@
-===========
+==================================================
 Comparison result:
 Report: report_0_mysql_bounded_5000.md
 Grafana Dashboard: http://54.145.205.160:3000/d/b14c7a6e-cecc-48ec-8de6-52ffc13e1422/comparison-0-mysql-bounded
@@ -64,4 +64,4 @@ release-9.5.0-rc1:
   DB Engine: postgresql
   Supported Users: 10377
   Errors: 33263
-========================================
+==================================================
