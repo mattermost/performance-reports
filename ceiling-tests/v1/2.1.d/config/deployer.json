@@ -1,0 +1,169 @@
+{
+  "AWSProfile": "mm-loadtest",
+  "AWSRegion": "us-east-1",
+  "AWSAMI": "ami-003d3d03cfe1b0468",
+  "ClusterName": "ct21dagm",
+  "ClusterVpcID": "",
+  "ClusterSubnetID": "",
+  "AppInstanceCount": 6,
+  "AppInstanceType": "c6i.4xlarge",
+  "AgentInstanceCount": 50,
+  "AgentInstanceType": "c6i.xlarge",
+  "ElasticSearchSettings": {
+    "InstanceCount": 0,
+    "InstanceType": "r4.large.elasticsearch",
+    "VpcID": "",
+    "Version": 6.5,
+    "CreateRole": false
+  },
+  "JobServerSettings": {
+    "InstanceCount": 0,
+    "InstanceType": "c5.xlarge"
+  },
+  "EnableAgentFullLogs": true,
+  "ProxyInstanceType": "m6in.4xlarge",
+  "SSHPublicKey": "~/.ssh/id_ed25519.pub",
+  "TerraformStateDir": "/home/ubuntu/ct21d/ltstatus",
+  "S3BucketDumpURI": "",
+  "DBDumpURI": "",
+  "SiteURL": "ltserver",
+  "UsersFilePath": "/home/ubuntu/ctassets/users.txt",
+  "TerraformDBSettings": {
+    "InstanceCount": 5,
+    "InstanceEngine": "aurora-postgresql",
+    "InstanceType": "db.r6g.4xlarge",
+    "UserName": "mmuser",
+    "Password": "mostest80098bigpass_",
+    "EnablePerformanceInsights": true,
+    "DBParameters": [],
+    "ClusterIdentifier": "agm-ltcluster-17102023-4",
+    "DBName": "agnivaltdb"
+  },
+  "ExternalDBSettings": {
+    "DriverName": "cockroach",
+    "DataSource": "",
+    "DataSourceReplicas": [],
+    "DataSourceSearchReplicas": []
+  },
+  "ExternalBucketSettings": {
+    "AmazonS3AccessKeyId": "REDACTED",
+    "AmazonS3SecretAccessKey": "REDACTED",
+    "AmazonS3Bucket": "agm-ct-bucket-20230829-01",
+    "AmazonS3PathPrefix": "",
+    "AmazonS3Region": "us-east-1",
+    "AmazonS3Endpoint": "s3.amazonaws.com",
+    "AmazonS3SSL": true,
+    "AmazonS3SignV2": false,
+    "AmazonS3SSE": false
+  },
+  "MattermostDownloadURL": "file:///home/ubuntu/ctassets/mattermost-8.1.with_job_fix",
+  "MattermostLicenseFile": "/home/ubuntu/licenses/prod/dev-enterprise.mattermost-license",
+  "MattermostConfigPatchFile": "",
+  "AdminEmail": "sysadmin@sample.mattermost.com",
+  "AdminUsername": "sysadmin",
+  "AdminPassword": "Sys@dmin-sample1",
+  "LoadTestDownloadURL": "file:///home/ubuntu/ctassets/mattermost-load-test-ng-v1.9.1-53-gdcc95b8-linux-amd64.tar.gz",
+  "LogSettings": {
+    "EnableConsole": true,
+    "ConsoleLevel": "INFO",
+    "ConsoleJson": false,
+    "EnableFile": true,
+    "FileLevel": "INFO",
+    "FileJson": true,
+    "FileLocation": "deployer.log",
+    "EnableColor": true
+  },
+  "Report": {
+    "Label": "{instance=~\"app.*\"}",
+    "GraphQueries": [
+      {
+        "Name": "CPU Utilization",
+        "Query": "avg(rate(mattermost_process_cpu_seconds_total{instance=~\"app.*\"}[5m])* 100)"
+      },
+      {
+        "Name": "Heap In Use",
+        "Query": "avg(go_memstats_heap_inuse_bytes{instance=~\"app.*:8067\"})"
+      },
+      {
+        "Name": "Stack In Use",
+        "Query": "avg(go_memstats_stack_inuse_bytes{instance=~\"app.*:8067\"})"
+      },
+      {
+        "Name": "Goroutines In Use",
+        "Query": "sum(go_goroutines{instance=~\"app.*:8067\"})"
+      },
+      {
+        "Name": "RPS",
+        "Query": "sum(rate(mattermost_http_requests_total{instance=~\"app.*:8067\"}[5m]))"
+      },
+      {
+        "Name": "Avg Store times",
+        "Query": "sum(rate(mattermost_db_store_time_sum{instance=~\"app.*:8067\"}[5m])) / sum(rate(mattermost_db_store_time_count{instance=~\"app.*:8067\"}[5m]))"
+      },
+      {
+        "Name": "P99 Store times",
+        "Query": "histogram_quantile(0.99, sum(rate(mattermost_db_store_time_bucket[5m])) by (le))"
+      },
+      {
+        "Name": "Avg API times",
+        "Query": "sum(rate(mattermost_api_time_sum[5m])) / sum(rate(mattermost_api_time_count[5m]))"
+      },
+      {
+        "Name": "P99 API times",
+        "Query": "histogram_quantile(0.99, sum(rate(mattermost_api_time_bucket[5m])) by (le))"
+      },
+      {
+        "Name": "Websocket connections",
+        "Query": "sum(mattermost_http_websockets_total{instance=~\"app.*8067\"})"
+      },
+      {
+        "Name": "P99 Cluster request duration",
+        "Query": "histogram_quantile(0.99, sum(rate(mattermost_cluster_cluster_request_duration_seconds_bucket[5m])) by (le))"
+      },
+      {
+        "Name": "P50 Cluster request duration",
+        "Query": "histogram_quantile(0.50, sum(rate(mattermost_cluster_cluster_request_duration_seconds_bucket[5m])) by (le))"
+      },
+      {
+        "Name": "Cluster RPS",
+        "Query": "sum(rate(mattermost_cluster_cluster_request_duration_seconds_count[5m]))"
+      },
+      {
+        "Name": "Websocket buffer size",
+        "Query": "sum(mattermost_websocket_broadcast_buffer_size)"
+      },
+      {
+        "Name": "Websocket broadcasts",
+        "Query": "sum(rate(mattermost_websocket_broadcasts_total[5m])) by (name)"
+      },
+      {
+        "Name": "App network TX rate",
+        "Query": "(sum(rate(node_network_transmit_bytes_total{instance=~\"app.*9100\"}[5m])) by (instance)) *8"
+      },
+      {
+        "Name": "App network RX rate",
+        "Query": "(sum(rate(node_network_receive_bytes_total{instance=~\"app.*9100\"}[5m])) by (instance)) *8"
+      },
+      {
+        "Name": "Proxy network TX rate",
+        "Query": "(sum(rate(node_network_transmit_bytes_total{instance=~\"proxy.*9100\"}[5m])) by (instance)) *8"
+      },
+      {
+        "Name": "Proxy network RX rate",
+        "Query": "(sum(rate(node_network_receive_bytes_total{instance=~\"proxy.*9100\"}[5m])) by (instance)) *8"
+      },
+      {
+        "Name": "Total TCP connections",
+        "Query": "sum(node_netstat_Tcp_CurrEstab{instance=~\"app.*9100\"})"
+      },
+      {
+        "Name": "Total TCP timeouts",
+        "Query": "sum(irate(node_netstat_TcpExt_TCPTimeouts{instance=~\"app.*9100\"}[5m]))"
+      },
+      {
+        "Name": "Total TCP listen drops",
+        "Query": "sum(irate(node_netstat_TcpExt_ListenDrops{instance=~\"app.*9100\"}[5m]))"
+      }
+    ]
+  }
+}

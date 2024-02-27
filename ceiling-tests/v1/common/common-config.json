@@ -1,0 +1,45 @@
+// This file is not valid JSON, since it contains comments:
+// - A comment following a field indicates that its value will differ
+//   depending on the specific test. If the different values are just a few,
+//   they are listed separated by the pipe character `|`. If there are too
+//   many to list, they are simply marked as `Multiple values`.
+// - A commented out section indicates that such section appears only in
+//   specific tests.
+{
+  "ConnectionConfiguration": {
+    "ServerURL": "http://localhost:8065",
+    "WebSocketURL": "ws://localhost:8065",
+    "AdminEmail": "sysadmin@sample.mattermost.com",
+    "AdminPassword": "Sys@dmin-sample1"
+  },
+  "UserControllerConfiguration": {
+    "Type": "simulative",
+    "RatesDistribution": [
+      {
+        "Rate": 5.4,
+        "Percentage": 1
+      }
+    ],
+    "ServerVersion": ""
+  },
+  "InstanceConfiguration": {
+    "NumTeams": 2,
+    "NumChannels": 10,
+    "NumPosts": 0,
+    "NumReactions": 0,
+    "NumAdmins": 0,
+    "PercentReplies": 0.5,
+    "PercentRepliesInLongThreads": 0.05,
+    "PercentUrgentPosts": 0.001,
+    "PercentPublicChannels": 0.2,
+    "PercentPrivateChannels": 0.1,
+    "PercentDirectChannels": 0.6,
+    "PercentGroupChannels": 0.1
+  },
+  "UsersConfiguration": {
+    "InitialActiveUsers": 0,
+    "UsersFilePath": "",
+    "MaxActiveUsers": 2000,
+    "AvgSessionsPerUser": 1
+  }
+}
