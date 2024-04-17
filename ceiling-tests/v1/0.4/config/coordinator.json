@@ -1,0 +1,29 @@
+{
+  "ClusterConfig": {
+    "Agents": [
+      {
+        "Id": "lt0",
+        "ApiURL": "http://localhost:4000"
+      }
+    ],
+    "MaxActiveUsers": 6000
+  },
+  "MonitorConfig": {
+    "PrometheusURL": "http://localhost:9090",
+    "UpdateIntervalMs": 2000,
+    "Queries": []
+  },
+  "NumUsersInc": 8,
+  "NumUsersDec": 8,
+  "RestTimeSec": 2,
+  "LogSettings": {
+    "EnableConsole": true,
+    "ConsoleLevel": "INFO",
+    "ConsoleJson": false,
+    "EnableFile": true,
+    "FileLevel": "DEBUG",
+    "FileJson": true,
+    "FileLocation": "ltcoordinator.log",
+    "EnableColor": false
+  }
+}
