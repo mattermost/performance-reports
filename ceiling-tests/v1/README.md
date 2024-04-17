@@ -423,6 +423,124 @@ All deployments have the database running in a different server, considering bot
 - Single-node deployments.
 - Multiple node deployments, with a writer instance and the rest acting as reader replicas.
 
+##### Proxy
+
+All deployments with more than one app node had a proxy acting as a load balancer:
+- Specs: the proxy ran in an `m6i.4xlarge` instance, with 16 vCPU and 64GiB of memory, supporting up to 12.5Gbps of network traffic in both directions.
+- Version: the proxy ran `nginx v1.18.0`.
+- Configuration: the proxy was configured with the following settings:
+
+```
+> cat /etc/nginx/nginx.conf
+
+user www-data;
+worker_processes auto;
+worker_rlimit_nofile 100000;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+  worker_connections 20000;
+  use epoll;
+}
+
+http {
+  map $status $loggable {
+    ~^[23] 0;
+    default 1;
+  }
+
+  sendfile on;
+  tcp_nopush on;
+  tcp_nodelay off;
+  keepalive_timeout 75s;
+  keepalive_requests 16384;
+  types_hash_max_size 2048;
+  include /etc/nginx/mime.types;
+  default_type application/octet-stream;
+  ssl_prefer_server_ciphers on;
+  access_log /var/log/nginx/access.log combined if=$loggable;
+  error_log /var/log/nginx/error.log;
+  gzip on;
+  include /etc/nginx/conf.d/*.conf;
+  include /etc/nginx/sites-enabled/*;
+}
+```
+
+Note that the `upstream backend` directive below is dynamically populated with the IPs of all app nodes:
+
+```
+> cat /etc/nginx/sites-available/mattermost
+
+upstream backend {
+  server 172.27.226.73:8065 max_fails=3;
+  server 172.27.215.224:8065 max_fails=3;
+  server 172.27.223.150:8065 max_fails=3;
+  server 172.27.242.185:8065 max_fails=3;
+  server 172.27.207.136:8065 max_fails=3;
+  server 172.27.254.13:8065 max_fails=3;
+
+  keepalive 256;
+}
+
+proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=mattermost_cache:10m max_size=3g inactive=120m use_temp_path=off;
+
+server {
+  listen 80;
+  server_name _;
+
+  location ~ /api/v[0-9]+/(users/)?websocket$ {
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    include /etc/nginx/snippets/proxy.conf;
+  }
+
+  location ~ /api/v[0-9]+/users/[a-z0-9]+/image$ {
+    proxy_set_header Connection "";
+    include /etc/nginx/snippets/proxy.conf;
+    include /etc/nginx/snippets/cache.conf;
+    proxy_ignore_headers Cache-Control Expires;
+    proxy_cache_valid 200 24h;
+  }
+
+  location / {
+    proxy_set_header Connection "";
+    include /etc/nginx/snippets/proxy.conf;
+    include /etc/nginx/snippets/cache.conf;
+  }
+}
+```
+
+```
+> cat /etc/nginx/snippets/cache.conf
+proxy_cache mattermost_cache;
+proxy_cache_revalidate on;
+proxy_cache_min_uses 2;
+proxy_cache_use_stale timeout;
+proxy_cache_lock on;
+```
+
+```
+> cat /etc/nginx/snippets/proxy.conf
+
+client_max_body_size 50M;
+proxy_set_header Host $http_host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;
+proxy_set_header X-Frame-Options SAMEORIGIN;
+proxy_buffers 256 16k;
+proxy_buffer_size 16k;
+client_body_timeout 60s;
+send_timeout        300s;
+lingering_timeout   5s;
+proxy_connect_timeout   30s;
+proxy_send_timeout      90s;
+proxy_read_timeout      90s;
+proxy_http_version 1.1;
+proxy_pass http://backend;
+```
+
 ##### License
 
 All servers were executed with en Enterprise license.
