@@ -1,11 +1,11 @@
 {
   "BaseBuild": {
-"Label": "release-9.7.0",
-"URL": "https://releases.mattermost.com/9.7.0/mattermost-enterprise-9.7.0-linux-amd64.tar.gz"
+    "Label": "release-9.7.0",
+    "URL": "https://releases.mattermost.com/9.7.0/mattermost-enterprise-9.7.0-linux-amd64.tar.gz"
   },
   "NewBuild": {
-"Label": "release-9.8.0-rc2",
-"URL": "https://releases.mattermost.com/9.8.0-rc2/mattermost-enterprise-9.8.0-rc2-linux-amd64.tar.gz"
+    "Label": "release-9.8.0-rc2",
+    "URL": "https://releases.mattermost.com/9.8.0-rc2/mattermost-enterprise-9.8.0-rc2-linux-amd64.tar.gz"
   },
   "LoadTests": [
     {
