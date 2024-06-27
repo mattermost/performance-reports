@@ -635,16 +635,16 @@ Find the exact configuration files for each test under `config/` inside the corr
 
 For each test configured as specified above, three independent runs were executed so we could average the final reported number of supported users. The results of each test, ordered by this average number, can be seen in the following table:
 
-| Test  | Number of app nodes | Type of app instance | Number of DB nodes | Type of DB instance | Number of supported users |
-|-------|---------------------|----------------------|--------------------|---------------------|---------------------------|
-| 1.1   | 1                   | c6i.large            | 1                  | db.r6g.large        | 100                       |
-| 1.2   | 2                   | c6i.large            | 2                  | db.r6g.large        | 1000                      |
-| 1.1.x | 1                   | c6i.xlarge           | 1                  | db.r6g.xlarge       | 8000                      |
-| 1.2.x | 2                   | c6i.xlarge           | 2                  | db.r6g.xlarge       | 15000                     |
-| 1.3   | 2                   | c6i.2xlarge          | 2                  | db.r6g.2xlarge      | 25000                     |
-| 1.4   | 5                   | c6i.2xlarge          | 5                  | db.r6g.2xlarge      | 50000                     |
-| 2.1.b | 4                   | c6i.4xlarge          | 5                  | db.r6g.4xlarge      | 70000                     |
-| 2.1.a | 5                   | c6i.4xlarge          | 5                  | db.r6g.4xlarge      | 79000                     |
-| 2.1.d | 6                   | c6i.4xlarge          | 5                  | db.r6g.4xlarge      | 88000                     |
+| Test  | Number of app nodes | Type of app instance | Number of DB nodes | Type of DB instance | Login rate    | Number of supported users |
+|-------|---------------------|----------------------|--------------------|---------------------|---------------|---------------------------|
+| 1.1   | 1                   | c6i.large            | 1                  | db.r6g.large        | 4 users / 4 s | 100                       |
+| 1.2   | 2                   | c6i.large            | 2                  | db.r6g.large        | 4 users / 4 s | 1000                      |
+| 1.1.x | 1                   | c6i.xlarge           | 1                  | db.r6g.xlarge       | 4 users / 4 s | 8000                      |
+| 1.2.x | 2                   | c6i.xlarge           | 2                  | db.r6g.xlarge       | 4 users / 4 s | 15000                     |
+| 1.3   | 2                   | c6i.2xlarge          | 2                  | db.r6g.2xlarge      | 8 users / 2 s | 25000                     |
+| 1.4   | 5                   | c6i.2xlarge          | 5                  | db.r6g.2xlarge      | 8 users / 2 s | 50000                     |
+| 2.1.b | 4                   | c6i.4xlarge          | 5                  | db.r6g.4xlarge      | 8 users / 2 s | 70000                     |
+| 2.1.a | 5                   | c6i.4xlarge          | 5                  | db.r6g.4xlarge      | 8 users / 2 s | 79000                     |
+| 2.1.d | 6                   | c6i.4xlarge          | 5                  | db.r6g.4xlarge      | 8 users / 2 s | 88000                     |
 
 Individual results for each run, as well as additional information (Raintank snapshots of the Grafana dashboards and certain profile data) for some of the tests, can be found under `results/` inside the corresponding directories named after the test number.
