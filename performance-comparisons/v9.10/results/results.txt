@@ -18,6 +18,24 @@ release-9.10.0-rc1:
 
 ==================================================
 Comparison result:
+Report: report_1_postgresql_bounded_7500.md
+Grafana Dashboard: http://54.196.37.168:3000/d/d053039a-157c-441d-865d-afb57c7f8dc3/comparison-0-postgresql-bounded
+release-9.9.0:
+  Type: bounded
+  DB Engine: postgresql
+  Duration: 90m
+  Users: 7500
+  Errors: 4087
+release-9.10.0-rc1:
+  Type: bounded
+  DB Engine: postgresql
+  Duration: 90m
+  Users: 7500
+  Errors: 1946
+==================================================
+
+==================================================
+Comparison result:
 Report: report_2_postgresql_unbounded.md
 Grafana Dashboard: http://3.85.76.217:3000/d/a7be569f-d4a6-466a-81cc-d6a058e18fcb/comparison-0-postgresql-unbounded
 release-9.9.0:
