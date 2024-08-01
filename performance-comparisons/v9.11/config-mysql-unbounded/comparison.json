@@ -1,0 +1,22 @@
+{
+  "BaseBuild": {
+  "Label": "release-9.10.0",
+  "URL": "https://releases.mattermost.com/9.10.0/mattermost-enterprise-9.10.0-linux-amd64.tar.gz"
+  },
+  "NewBuild": {
+  "Label": "release-9.11.0-rc2",
+  "URL": "https://releases.mattermost.com/9.11.0-rc2/mattermost-enterprise-9.11.0-rc2-linux-amd64.tar.gz"
+  },
+  "LoadTests": [
+    {
+      "Type": "unbounded",
+      "DBEngine": "mysql",
+      "DBDumpURL": "https://lt-public-data.s3.amazonaws.com/12M_610_mysql.sql.gz"
+    }
+  ],
+  "Output": {
+    "UploadDashboard": true,
+    "GenerateGraphs": true,
+    "GenerateReport": true
+  }
+}
