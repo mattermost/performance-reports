@@ -389,7 +389,7 @@ We also used an existing bucket that contains the files pointed out by the posts
 },
 ```
 
-All tests were designed to stress the latest [ESR version](https://docs.mattermost.com/upgrade/extended-support-release.html) at the time of testing: v9.5. See more about this in the [Mattermost version](#mattermost-version) section.
+All tests were designed to stress the latest [ESR version](https://docs.mattermost.com/upgrade/extended-support-release.html) at the time of testing: v9.5.7.
 
 The license used was an internal one used by developers for tests, but any Enterprise license would do.
 
