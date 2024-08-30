@@ -2,6 +2,14 @@
 
 This document describes the specifications of the second version of the ceiling tests, executed between July 18, 2024 and August 7, 2024, as well as its results.
 
+Along this report, you can also find the specifics of each test run under its corresponding directory. There, you will find:
+- A `config` directory, containing the specific configuration files used for the test run execution.
+- An `*.out.gz` file, containing the metrics gathered during the test run execution.
+- A `results.txt` file, containing:
+  - The time the test run started and finished
+  - The reported number of supported users at the end of the test run
+  - Snapshots of the main Grafana dashboards covering the test run
+
 ## Goals
 
 The goals of this document are:

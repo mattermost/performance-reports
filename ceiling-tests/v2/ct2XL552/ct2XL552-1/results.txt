@@ -1,0 +1,6 @@
+UTC time: "2024-07-29 14:12:54.084" "2024-07-29 23:15:49.452"
+Num users: 57614
+Default dashboard: https://snapshots.raintank.io/dashboard/snapshot/JzRzJLwJxOKqFKLDnsW3rIcBed258pnP
+Metrics dashboard: https://snapshots.raintank.io/dashboard/snapshot/BkUEX3BFm2cBrMOCf2yZ55JgpmF6HjQb
+Elasticsearch dashboard: https://snapshots.raintank.io/dashboard/snapshot/NLIVHdm4YgglFpYWPPTbcB7TeRyOZ7GQ
+V2 dashboard: https://snapshots.raintank.io/dashboard/snapshot/T8xjo14TqeDSCWLFbQdKB0EMubBllG4s
