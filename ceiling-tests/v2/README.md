@@ -322,7 +322,6 @@ No tests in in this batch used job servers. See the [Architecture](#architecture
 ``` json
 "JobServerSettings": {
   "InstanceCount": 0,
-  ...
 },
 ```
 
