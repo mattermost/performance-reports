@@ -568,7 +568,7 @@ The data with which all tests start is the same: a PostgreSQL dump specially des
 - Teams count: 20
 - Channels count: ~720000
 
-The data was generated using the generative controller of the loda-test tool, simulating 5 consecutive batches of 600 users that generated the data. This generation created disjoint sets of channel membership, with each of the 5 sets of 600 users being members of different set of channels. This was later fixed by a post-processing of the data that added the users to channels in some of the other sets.
+The data was generated using the generative controller of the load-test tool, simulating 5 consecutive batches of 600 users that generated the data. This generation created disjoint sets of channel membership, with each of the 5 sets of 600 users being members of different set of channels. This was later fixed by a post-processing of the data that added the users to channels in some of the other sets.
 
 The distribution of channels per type is as follows:
 
