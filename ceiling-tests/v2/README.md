@@ -100,7 +100,7 @@ The login rate is 8 users every 2 seconds for all tests.
 
 Apart from the raw numbers in the previous table, running these tests revealed some key points:
 
-- The main bottleneck we see across most of the tests is CPU.
+- The main bottleneck we see across most of the tests is application CPU.
 - Elasticsearch: Ceiling Tests v2 is the first time we add Elasticsearch to a batch of performance tests in a structured way. We learned some interesting things:
   - Elasticsearch improved performance by an order of magnitude in the lower-end tests, when the main bottleneck was the DB. This proves that Elasticsearch is the best solution when the database is struggling.
   - However, ES did absolutely nothing in the high-end tests, that were always bound by CPU.
@@ -119,7 +119,7 @@ Based on these learnings, we have a series of planned improvements:
 - Big steps ahead:
   - Improve intra-cluster communication ([MM-58564](https://mattermost.atlassian.net/browse/MM-58564)): this will be needed as we scale further, although it is not a bottleneck right now.
   - Multi-proxy setups: scaling further with only one entry point seems to be unsustainable, so we need to investigate setups with more than one proxy.
-  - In-depth investigation on CPU: all tests in the higher-end are 
+  - In-depth investigation on CPU: all tests in the higher-end are bottlenecked by application CPU, so we need to investigate the causes and potential solutions.
 
 
 ## Test specifications
@@ -432,6 +432,7 @@ The tested version of Mattermost was [v9.5.7](https://github.com/mattermost/matt
   - All other tests use High Availability deployments, with two or more application nodes deployed in a cluster with a proxy node on front acting as the entry point and sharing the requests among all app nodes. 
 - Elasticsearch: Tests with Elasticsearch enabled always used 2 instances of the same instance type.
 - Job servers; the deployment architecture omitted [job servers](https://docs.mattermost.com/scale/high-availability-cluster.html#job-server). Tests did not stress data-intensive tasks like LDAP syncing or data retention either.
+- TLS: tests are only stressing HTTP traffic, HTTPS is not supported by the tool at this moment.
 - Database: All deployments have the database running in a different server, considering both:
   - Single-node DB deployments.
   - Multiple node DB deployments, with a writer instance and the rest acting as reader replicas.
