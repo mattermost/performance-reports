@@ -36,7 +36,7 @@
 
 | Setting                              | Value                                                                                                                                                                                      |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Load-test version                    | [`v1.24.0`](https://github.com/mattermost/mattermost-load-test-ng/releases/tag/v1.24.0)                                                                                                    |
+| Load-test version                    | [`v1.25.0`](https://github.com/mattermost/mattermost-load-test-ng/releases/tag/v1.25.0)                                                                                                    |
 | Dataset                              | Dump from `v6.1.0`, 12M posts ([postgres](https://lt-public-data.s3.amazonaws.com/12M_610_fixed_psql.sql.gz), [mysql](https://lt-public-data.s3.amazonaws.com/12M_610_fixed_mysql.sql.gz)) |
 | Bounded - number of users (Postgres) | 7500                                                                                                                                                                                       |
 | Bounded - number of users (MySQL)    | 5000                                                                                                                                                                                       |
