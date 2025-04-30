@@ -1,0 +1,60 @@
+==================================================Comparison result:Report: report_0_mysql_bounded_5000.md
+Grafana Dashboard: http://3.85.209.51:3000/d/b113850c-82b5-494d-aede-a9c681461b2d/comparison-0-mysql-bounded
+release-10.7.0:
+  Type: bounded
+  DB Engine: mysql
+  Duration: 90m
+  Users: 5000
+  Errors: 396047
+release-10.8.0-rc1:
+  Type: bounded
+  DB Engine: mysql
+  Duration: 90m
+  Users: 5000
+  Errors: 395972
+==================================================
+
+==================================================Comparison result:Report: report_1_postgresql_bounded_7500.md
+Grafana Dashboard: http://54.161.107.105:3000/d/d57442a4-ca75-4403-abf5-07baa1d62898/comparison-0-postgresql-bounded
+release-10.7.0:
+  Type: bounded
+  DB Engine: postgresql
+  Duration: 90m
+  Users: 7500
+  Errors: 554489
+release-10.8.0-rc1:
+  Type: bounded
+  DB Engine: postgresql
+  Duration: 90m
+  Users: 7500
+  Errors: 554140
+==================================================
+
+==================================================Comparison result:Report: report_2_postgresql_unbounded.md
+Grafana Dashboard: http://3.81.209.251:3000/d/d7ba637c-1aa1-4f51-9d6c-4c7e51bec233/comparison-0-postgresql-unbounded
+release-10.7.0:
+  Type: unbounded
+  DB Engine: postgresql
+  Supported Users: 17339
+  Errors: 2616427
+release-10.8.0-rc1:
+  Type: unbounded
+  DB Engine: postgresql
+  Supported Users: 17639
+  Errors: 4182009
+==================================================
+
+==================================================Comparison result:Report: report_3_mysql_unbounded.md
+Grafana Dashboard: http://98.81.194.162:3000/d/e4b6c5de-a420-4894-a7de-b911a23d66e1/comparison-0-mysql-unbounded
+release-10.7.0:
+  Type: unbounded
+  DB Engine: mysql
+  Supported Users: 16045
+  Errors: 3150527
+release-10.8.0-rc1:
+  Type: unbounded
+  DB Engine: mysql
+  Supported Users: 16224
+  Errors: 6240968
+==================================================
+
