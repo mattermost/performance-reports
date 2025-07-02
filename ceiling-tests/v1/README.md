@@ -13,7 +13,7 @@ The goals of this document are:
 
 ## Background reading
 
-1. [Reference Architectures](https://docs.google.com/document/u/0/d/14A2dRqc03w5hAo3qfctcI5YwyaL9fnJMhBDXERcwoMU/edit), the document used to plan these tests.
+1. [Reference Architectures](https://mattermost-my.sharepoint.com/:w:/p/alejandro_garcia/EU_iJDs4kvZdklk7hKYKVIsBpp_vlFFyE0w9CG8EEE_6fg?e=fYWt1Y), the document used to plan these tests.
 
 ## Disclaimer
 
@@ -29,7 +29,7 @@ The tests were executed in three phases:
 - Phase 1 - Broad overview: A wide range of architectures to understand how the system behaves with both horizontal and vertical scaling.
 - Phase 2 - Ceiling tests: A carefully selected range of architectures to look for the actual maximum number of users supported by the system.
 
-The naming of each test is defined by the initial plan designed in the [Reference Architectures](https://docs.google.com/document/u/0/d/14A2dRqc03w5hAo3qfctcI5YwyaL9fnJMhBDXERcwoMU/edit) document, as `{phase}.{test number}`, where phase is the number of the phase (0, 1 or 2) and test number is the identifier of the test (it can be just a number, or a number followed by a letter). Refer to the linked document for more information.
+The naming of each test is defined by the initial plan designed in the [Reference Architectures](https://mattermost-my.sharepoint.com/:w:/p/alejandro_garcia/EU_iJDs4kvZdklk7hKYKVIsBpp_vlFFyE0w9CG8EEE_6fg?e=fYWt1Y) document, as `{phase}.{test number}`, where phase is the number of the phase (0, 1 or 2) and test number is the identifier of the test (it can be just a number, or a number followed by a letter). Refer to the linked document for more information.
 
 Each test was executed three times to get an averaged result.
 
@@ -68,7 +68,7 @@ Later versions of this test suite will fix this difference in versions so that r
 
 Each test simulates a number of users, who behave similar to a real user by executing a series of actions with given relative frequencies.
 
-These frequencies were computed to match an average user in on our largest customer in Cloud, during a 2-hour time window where the number of concurrently connected devices were at its highest. The actual definition of the frequencies can be found [in the code](https://github.com/mattermost/mattermost-load-test-ng/blob/dcc95b8250bbc821ac3cacaf020824b4ce955036/loadtest/control/simulcontroller/controller.go#L19-L205), and the procedure of how these were computed in the [Action frequencies review](https://docs.google.com/document/d/1A4gRuJBymamP5cTgYkI-CJV3n4Sj4nF07Zn44seuaks/edit#) document. The following table shows the actions used in these tests sorted by relative frequency:
+These frequencies were computed to match an average user in on our largest customer in Cloud, during a 2-hour time window where the number of concurrently connected devices were at its highest. The actual definition of the frequencies can be found [in the code](https://github.com/mattermost/mattermost-load-test-ng/blob/dcc95b8250bbc821ac3cacaf020824b4ce955036/loadtest/control/simulcontroller/controller.go#L19-L205), and the procedure of how these were computed in the [Action frequencies review](https://mattermost-my.sharepoint.com/:w:/p/alejandro_garcia/EW-Ff7mPOBZTaLEsip2ainIBvapq04qay34nJkdS65a0oA?e=h4KIYw) document. The following table shows the actions used in these tests sorted by relative frequency:
 
 | Action                             | Freq   |
 |------------------------------------|--------|
