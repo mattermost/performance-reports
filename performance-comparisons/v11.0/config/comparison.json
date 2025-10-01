@@ -1,0 +1,29 @@
+{
+  "BaseBuild": {
+  "Label": "release-10.12.0",
+  "URL": "https://releases.mattermost.com/10.12.0/mattermost-enterprise-10.12.0-linux-amd64.tar.gz"
+  },
+  "NewBuild": {
+  "Label": "release-11.0.1-rc2",
+  "URL": "https://releases.mattermost.com/11.0.1-rc2/mattermost-enterprise-11.0.1-rc2-linux-amd64.tar.gz"
+  },
+  "LoadTests": [
+    {
+      "DBDumpURL": "https://lt-public-data.s3.amazonaws.com/12M_610_fixed_psql.sql.gz",
+      "DBEngine": "postgresql",
+      "Type": "unbounded"
+    },
+    {
+      "DBDumpURL": "https://lt-public-data.s3.amazonaws.com/12M_610_fixed_psql.sql.gz",
+      "DBEngine": "postgresql",
+      "Duration": "90m",
+      "NumUsers": 7500,
+      "Type": "bounded"
+    }
+  ],
+  "Output": {
+    "GenerateGraphs": true,
+    "GenerateReport": true,
+    "UploadDashboard": true
+  }
+}
