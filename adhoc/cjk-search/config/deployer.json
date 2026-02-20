@@ -1,0 +1,138 @@
+{
+  "AWSAMI": "ami-003d3d03cfe1b0468",
+  "AWSAvailabilityZone": "",
+  "AWSRoleARN": "",
+  "AWSProfile": "mm-loadtest",
+  "AWSRegion": "us-east-1",
+  "AdminEmail": "sysadmin@sample.mattermost.com",
+  "AdminPassword": "Sys@dmin-sample1",
+  "AdminUsername": "sysadmin",
+  "AgentInstanceCount": 5,
+  "AgentInstanceType": "c7i.large",
+  "BrowserAgentInstanceCount": 0,
+  "BrowserAgentInstanceType": "c7i.xlarge",
+  "AgentAllocatePublicIPAddress": true,
+  "AppAttachIAMProfile": "",
+  "EnableMetricsInstance": true,
+  "AppInstanceCount": 2,
+  "AppInstanceType": "c7i.large",
+  "ClusterName": "agmcjk",
+  "ClusterSubnetIDs": {},
+  "ClusterVpcID": "",
+  "DBDumpURI": "",
+  "ElasticSearchSettings": {},
+  "EnableAgentFullLogs": true,
+  "EnableNetPeekMetrics": false,
+  "ExternalBucketSettings": {
+    "AmazonS3AccessKeyId": "",
+    "AmazonS3SecretAccessKey": "",
+    "AmazonS3Bucket": "",
+    "AmazonS3PathPrefix": "",
+    "AmazonS3Region": "us-east-1",
+    "AmazonS3Endpoint": "s3.amazonaws.com",
+    "AmazonS3SSL": true,
+    "AmazonS3SignV2": false,
+    "AmazonS3SSE": false
+  },
+  "ExternalDBSettings": {},
+  "JobServerSettings": {},
+  "LoadTestDownloadURL": "file://./dist/latest.tar.gz",
+  "LogSettings": {
+    "ConsoleJson": false,
+    "ConsoleLevel": "INFO",
+    "EnableColor": true,
+    "EnableConsole": true,
+    "EnableFile": true,
+    "FileJson": true,
+    "FileLevel": "DEBUG",
+    "FileLocation": "deployer.log"
+  },
+  "MattermostConfigPatchFile": "",
+  "MattermostDownloadURL": "https://pr-builds.mattermost.com/mattermost-platform/commit/aeebf532daf90c18598c66504598d6839d95c8e5/mattermost-enterprise-linux-amd64.tar.gz",
+  "MattermostLicenseFile": "/home/ubuntu/licenses/license_ent_adv_test.mattermost-license",
+  "MetricsInstanceType": "t3.xlarge",
+  "ProxyInstanceCount": 1,
+  "ProxyInstanceType": "c7i.xlarge",
+  "ProxyAllocatePublicIPAddress": true,
+  "PyroscopeSettings": {
+    "BlockProfileRate": 0,
+    "EnableAgentProfiling": true,
+    "EnableAppProfiling": true
+  },
+  "Report": {
+    "GraphQueries": [
+      {
+        "Name": "CPU Utilization",
+        "Query": "avg(rate(mattermost_process_cpu_seconds_total{instance=~\"app.*\"}[1m])* 100)"
+      },
+      {
+        "Name": "Heap In Use",
+        "Query": "avg(go_memstats_heap_inuse_bytes{instance=~\"app.*:8067\"})"
+      },
+      {
+        "Name": "Stack In Use",
+        "Query": "avg(go_memstats_stack_inuse_bytes{instance=~\"app.*:8067\"})"
+      },
+      {
+        "Name": "Goroutines In Use",
+        "Query": "sum(go_goroutines{instance=~\"app.*:8067\"})"
+      },
+      {
+        "Name": "RPS",
+        "Query": "sum(rate(mattermost_http_requests_total{instance=~\"app.*:8067\"}[1m]))"
+      },
+      {
+        "Name": "Avg Store times",
+        "Query": "sum(rate(mattermost_db_store_time_sum{instance=~\"app.*:8067\"}[1m])) / sum(rate(mattermost_db_store_time_count{instance=~\"app.*:8067\"}[1m]))"
+      },
+      {
+        "Name": "P99 Store times",
+        "Query": "histogram_quantile(0.99, sum(rate(mattermost_db_store_time_bucket[1m])) by (le))"
+      },
+      {
+        "Name": "Avg API times",
+        "Query": "sum(rate(mattermost_api_time_sum[1m])) / sum(rate(mattermost_api_time_count[1m]))"
+      },
+      {
+        "Name": "P99 API times",
+        "Query": "histogram_quantile(0.99, sum(rate(mattermost_api_time_bucket[1m])) by (le))"
+      },
+      {
+        "Name": "Number of Connected Devices",
+        "Query": "sum(mattermost_http_websockets_total{instance=~\"app.*:8067\"})"
+      }
+    ],
+    "Label": "{instance=~\"app.*\"}"
+  },
+  "S3BucketDumpURI": "",
+  "SSHPublicKey": "~/.ssh/id_ed25519.pub",
+  "SiteURL": "",
+  "ServerURL": "",
+  "ServerScheme": "http",
+  "StorageSizes": {
+    "Agent": 10,
+    "App": 20,
+    "ElasticSearch": 20,
+    "Job": 50,
+    "Metrics": 50,
+    "Proxy": 10
+  },
+  "TerraformDBSettings": {
+    "ClusterIdentifier": "",
+    "DBName": "",
+    "DBParameters": [],
+    "EnablePerformanceInsights": true,
+    "InstanceCount": 2,
+    "InstanceEngine": "aurora-postgresql",
+    "InstanceType": "db.r7g.large",
+    "Password": "mostest80098bigpass_",
+    "UserName": "mmuser"
+  },
+  "TerraformStateDir": "./ltstatus",
+  "CustomTags": {
+    "Origin": "adhoc-testing"
+  },
+  "MattermostPlugins": {
+    "playbooks": "https://plugins.releases.mattermost.com/release/mattermost-plugin-playbooks-v2.6.1-linux-amd64.tar.gz"
+  }
+}
