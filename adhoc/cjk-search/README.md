@@ -82,7 +82,7 @@ On visual inspection, both the p50 and p99 values seems slightly higher on the `
 | CJKSearch = false | 25.7                        | 248                         |
 | CJKSearch = true  | 63.6                        | 402                         |
 
-Here we see an increase in both values. The average time to search posts increases ~2.5 times for CJK searches, while the p99 value increases ~1.6 times for CJK searches. These increments are important, but an average value of 63ms and a p99 of 402ms is still well beyond the budget for these methods.
+Here we see an increase in both values. The average time to search posts increases ~2.5 times for CJK searches, while the p99 value increases ~1.6 times for CJK searches. These increments are important, but an average value of 63ms and a p99 of 402ms is still well within the budget for these methods.
 
 ### Manual inspection
 
