@@ -88,7 +88,7 @@ Here we see an increase in both values. The average time to search posts increas
 
 While the numerical analysis is important to quantify the performance, a manual inspection was also performed to understand whether the user experience had worsened. A sample of these tests can be seen in the following video:
 
-![Manual test to validate UX](images/manual_test.webm)
+[Manual test to validate UX](https://github.com/user-attachments/assets/3d8a22e1-19b9-4ac0-98e1-da160adca2ba)
 
 This manual test was executed, as seen at the beginning of the video, when the server had ~6650 concurrent users, to validate the user experience with a lot of traffic in the server. Four searches are performed:
 1. The full content of a post in Japanese, expecting to only find such post.
