@@ -1,0 +1,30 @@
+==================================================Comparison result:Report: report_0_postgresql_bounded_6500.md
+Grafana Dashboard: http://52.91.75.130:3000/d/ffzn0beggxz40f/comparison-0-postgresql-bounded
+release-11.11.1:
+  Type: bounded
+  DB Engine: postgresql
+  Duration: 90m
+  Users: 6500
+  Errors: 7749
+release-12.0.0-rc2:
+  Type: bounded
+  DB Engine: postgresql
+  Duration: 90m
+  Users: 6500
+  Errors: 7762
+==================================================
+
+==================================================Comparison result:Report: report_1_postgresql_unbounded.md
+Grafana Dashboard: http://3.92.145.220:3000/d/ffznfcui59erkb/comparison-0-postgresql-unbounded
+release-11.11.1:
+  Type: unbounded
+  DB Engine: postgresql
+  Supported Users: 16533
+  Errors: 69536
+release-12.0.0-rc2:
+  Type: unbounded
+  DB Engine: postgresql
+  Supported Users: 15820
+  Errors: 69362
+==================================================
+
